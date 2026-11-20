@@ -1,0 +1,153 @@
+:root {
+  --encre: #14213d;
+  --cobalt: #2f4bff;
+  --soleil: #ffc93c;
+  --brume: #f2f5fb;
+  --blanc: #ffffff;
+
+  --espace-hero: 3rem;        /* marge verticale du hero */
+  --espace-section: 3rem;     /* marge verticale des autres sections */
+  --espace-carte: 1.5rem;     /* padding intérieur des cartes */
+  --ecart-grille: 1rem;       /* espace entre les cartes */
+
+  --bs-body-font-family: "Figtree", system-ui, sans-serif;
+  --bs-body-color: var(--encre);
+  --bs-body-bg: var(--brume);
+  --bs-link-color: var(--cobalt);
+}
+
+
+/* 2. Base : sélecteurs d’éléments (0,0,1), les plus faibles possible */
+h1, h2, h3, .navbar-brand {
+  font-family: "Bricolage Grotesque", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+p { max-width: 38rem; }
+
+:focus-visible {
+  outline: 0.1875rem solid var(--soleil);
+  outline-offset: 0.1875rem;
+}
+
+
+/* 3. Boutons */
+.btn-cobalt {
+  background: var(--cobalt);
+  color: var(--blanc);
+  border: 0;
+  border-radius: 62rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+}
+.btn-cobalt:hover { background: #1f38d6; color: var(--blanc); }
+
+
+/* 4. Section hero (version mobile) */
+.hero-section {
+  padding-block: var(--espace-hero);
+}
+
+.hero-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.hero-text {
+  margin-top: 1.5rem;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+
+/* 5. Autres sections et grille de cartes */
+.section {
+  padding-block: var(--espace-section);
+}
+
+/* Bootstrap fixe l’écart des colonnes sur .row ; notre classe, chargée
+   après, le remplace à spécificité égale (0,1,0). */
+.grille-services {
+  --bs-gutter-x: var(--ecart-grille);
+  --bs-gutter-y: var(--ecart-grille);
+}
+
+
+/* 6. Cartes
+   Plutôt que de surcharger les propriétés une à une, on change les
+   variables --bs-card-* que Bootstrap lit déjà dans .card : un seul
+   sélecteur de classe suffit. */
+.card {
+  --bs-card-height: 100%;
+  --bs-card-bg: var(--blanc);
+  --bs-card-border-width: 0;
+  --bs-card-border-radius: 1rem;
+  --bs-card-spacer-x: var(--espace-carte);
+  --bs-card-spacer-y: var(--espace-carte);
+
+  overflow: hidden;
+  box-shadow: 0 0.0625rem 0 rgb(20 33 61 / 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.bandeau { height: 0.625rem; }
+.bandeau-1 { background: var(--cobalt); }
+.bandeau-2 { background: var(--soleil); }
+.bandeau-3 { background: var(--encre); }
+
+/* Effet au survol : uniquement sur les appareils munis d’une souris,
+   pour éviter un état « collé » sur écran tactile. */
+@media (hover: hover) {
+  .card:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 0.75rem 1.5rem rgb(20 33 61 / 0.14);
+  }
+}
+
+/* Respecte les personnes qui désactivent les animations */
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: none; }
+}
+
+
+/* 7. Pied de page */
+footer {
+  padding-block: var(--espace-section);
+  background: var(--encre);
+  color: #d7dcea;
+}
+footer a { color: var(--blanc); }
+
+
+/* ==========================================================
+   Tablette et bureau : à partir de 768px (48rem)
+   On augmente l’espacement vertical en modifiant les variables :
+   aucune règle supplémentaire, aucune spécificité en plus.
+   ========================================================== */
+@media (min-width: 768px) {
+  :root {
+    --espace-hero: 5rem;
+    --espace-section: 4.5rem;
+    --espace-carte: 2rem;
+    --ecart-grille: 1.5rem;
+  }
+
+  .hero-title { font-size: 3.25rem; }
+  .hero-text  { margin-top: 2rem; font-size: 1.25rem; }
+  .bandeau    { height: 0.75rem; }
+}
+
+
+/* ==========================================================
+   Grand écran : à partir de 1024px (64rem)
+   ========================================================== */
+@media (min-width: 1024px) {
+  :root {
+    --espace-hero: 7rem;
+    --espace-section: 6rem;
+    --ecart-grille: 2rem;
+  }
+
+  .hero-title { font-size: 4.25rem; }
+}
