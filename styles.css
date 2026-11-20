@@ -1,3 +1,17 @@
+/* ==========================================================
+   styles.css – Studio Marée
+   À charger APRÈS Bootstrap : à spécificité égale, la dernière règle gagne.
+   Mobile-first : les styles de base visent les petits écrans, puis
+   @media (min-width: …) enrichit à 768px, 992px et 1024px.
+   Unités relatives uniquement (rem, %), aucune déclaration de priorité forcée.
+   Spécificité volontairement basse : aucun ID, peu de classes combinées
+   (le calcul est détaillé en commentaire sur les règles avancées).
+   ========================================================== */
+
+
+/* 1. Variables : couleurs, espacements et tailles en un seul endroit.
+   Bootstrap déclare aussi ses variables sur :root (même spécificité) :
+   les nôtres gagnent parce qu’elles sont chargées après. */
 :root {
   --encre: #14213d;
   --cobalt: #2f4bff;
@@ -173,6 +187,14 @@ footer a { color: var(--blanc); }
 .navbar-nav > .nav-item > .nav-link:focus-visible {
   color: var(--cobalt);
   border-bottom-color: var(--cobalt);
+}
+
+
+/* Logo à côté du nom du studio, dimensionné en rem pour suivre la taille du texte.
+   Spécificité (0, 1, 0) : une seule classe. */
+.logo-marque {
+  width: 2rem;
+  height: 2rem;
 }
 
 
