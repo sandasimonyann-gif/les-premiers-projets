@@ -34,7 +34,7 @@
              aria-controls="menu"      → indique aux lecteurs d’écran quel contenu est piloté
              aria-expanded="false"     → état courant (Bootstrap le passe à true à l’ouverture)
              aria-label                → nom accessible du bouton, qui n’a pas de texte visible -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Ouvrir le menu">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Afficher ou masquer le menu">
           <span class="navbar-toggler-icon"></span>
         </button>
         <!-- Contenu replié : son id doit correspondre à data-bs-target du bouton -->
@@ -43,7 +43,7 @@
             <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
             <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
             <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-            <li class="nav-item"><a class="btn btn-cobalt" href="#contact">Démarrer un projet</a></li>
+            <li class="nav-item"><a class="btn btn-primary" href="#contact">Démarrer un projet</a></li>
           </ul>
         </div>
       </div>
@@ -65,14 +65,14 @@
           <div class="col-12 col-lg-7">
             <h1 id="titre-hero" class="hero-title">Des marques qui se remarquent dès le premier regard.</h1>
             <p class="hero-text">Studio Marée imagine des identités visuelles, des sites web et des films d’animation sur mesure pour les entrepreneurs et les petites équipes.</p>
-            <a class="btn btn-cobalt mt-3" href="#contact">Parlons de votre projet</a>
+            <a class="btn btn-primary mt-3" href="#contact">Parlons de votre projet</a>
           </div>
 
           <!-- Colonne image : pleine largeur sur mobile, 5/12 dès 992px (7 + 5 = 12) -->
           <div class="col-12 col-lg-5">
-            <!-- .img-fluid : max-width 100% + hauteur auto, l’image rétrécit avec sa colonne ; .mx-auto la centre -->
-            <img class="img-fluid d-block mx-auto" src="C:/Users/HP/OneDrive/Bureau/Apprentissage Frond-end/projet-01-vitrine/hero.svg" width="400" height="400"
-                 alt="Composition de formes colorées : un cercle bleu, un carré jaune et une demi-pastille sombre">
+            <!-- Image décorative : alt="" (vide) pour que les lecteurs d’écran l’ignorent.
+                 .img-fluid : max-width 100% + hauteur auto, l’image rétrécit avec sa colonne ; .mx-auto la centre -->
+            <img class="img-fluid d-block mx-auto" src="C:\Users\HP\OneDrive\Bureau\Apprentissage Frond-end\projet-01-vitrine\hero.svg" width="400" height="400" alt="">
           </div>
 
         </div>
@@ -184,25 +184,94 @@
       </div>
     </section>
 
+    <!-- =====================================================
+         SECTION 4 : CONTACT (formulaire)
+         ===================================================== -->
+    <section class="section" id="contact" aria-labelledby="titre-contact">
+      <div class="container">
+        <h2 id="titre-contact" class="fw-bold">Parlons de votre projet</h2>
+        <p class="mb-4">Décrivez votre besoin en quelques lignes, nous vous répondons sous 48 heures. Tous les champs sont obligatoires.</p>
+
+        <!-- .row = ligne de 12 colonnes ; .g-3 = espace de 1rem entre les champs.
+             action="#" est provisoire : il faudra un service ou un script serveur pour recevoir les messages. -->
+        <form class="row g-3 formulaire-contact" action="#" method="post">
+
+          <!-- Nom et Email : 12/12 sur mobile, 6/12 chacun dès 768px (col-md-6) -->
+          <div class="col-12 col-md-6">
+            <!-- for="nom" doit être identique à l’id du champ ci-dessous -->
+            <label for="nom" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="nom" name="nom" autocomplete="name" required>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <label for="email" class="form-label">Email</label>
+            <!-- type="email" : validation du format et clavier adapté (@) sur mobile -->
+            <input type="email" class="form-control" id="email" name="email" autocomplete="email" required>
+          </div>
+
+          <div class="col-12">
+            <label for="sujet" class="form-label">Sujet</label>
+            <!-- Première option vide + disabled : force un vrai choix grâce à required -->
+            <select class="form-select" id="sujet" name="sujet" required>
+              <option value="" selected disabled>Choisissez un sujet</option>
+              <option value="identite">Identité visuelle</option>
+              <option value="web">Site web</option>
+              <option value="motion">Motion design</option>
+              <option value="autre">Autre demande</option>
+            </select>
+          </div>
+
+          <div class="col-12">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+          </div>
+
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">Envoyer le message</button>
+          </div>
+
+        </form>
+      </div>
+    </section>
+
   </main>
 
-  <!-- Pied de page : coordonnées et mentions -->
-  <footer id="contact">
+  <!-- =====================================================
+       PIED DE PAGE : 3 colonnes (empilées sur mobile, côte à côte dès 768px)
+       ===================================================== -->
+  <footer>
     <div class="container">
+      <!-- col-12 col-md-4 : 12/12 sur mobile, 4/12 dès 768px (4 + 4 + 4 = 12) -->
       <div class="row g-4">
-        <div class="col-md-6">
-          <h2 class="h4 text-white">Un projet en tête ?</h2>
-          <p class="mb-0">Écrivez-nous, nous répondons sous 48 heures.</p>
-        </div>
-        <div class="col-md-6 text-md-end">
+
+        <div class="col-12 col-md-4">
+          <h2 class="h5 text-white">Coordonnées</h2>
           <address class="mb-0">
-            <a href="mailto:bonjour@studiomaree.example">bonjour@studiomaree.example</a><br>
-            Yaoundé, Cameroun
+            Studio Marée<br>
+            Yaoundé, Cameroun<br>
+            <a href="mailto:bonjour@studiomaree.example">bonjour@studiomaree.example</a>
           </address>
         </div>
+
+        <div class="col-12 col-md-4">
+          <h2 class="h5 text-white">Liens rapides</h2>
+          <nav aria-label="Liens rapides">
+            <ul class="list-unstyled liens-rapides mb-0">
+              <li><a href="#accueil">Accueil</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#faq">FAQ</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <h2 class="h5 text-white">Studio Marée</h2>
+          <p>Identités visuelles, sites web et motion design pour les marques qui veulent se faire remarquer.</p>
+          <p class="small mb-0">© 2026 Studio Marée. Tous droits réservés.</p>
+        </div>
+
       </div>
-      <hr class="my-4 border-secondary">
-      <p class="small mb-0">© 2026 Studio Marée. Tous droits réservés.</p>
     </div>
   </footer>
 
