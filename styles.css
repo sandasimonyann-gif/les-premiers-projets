@@ -1,3 +1,17 @@
+/* ==========================================================
+   styles.css – Studio Marée
+   À charger APRÈS Bootstrap : à spécificité égale, la dernière règle gagne.
+   Mobile-first : les styles de base visent les petits écrans, puis
+   @media (min-width: …) enrichit à 768px et 1024px.
+   Unités relatives uniquement (rem, %), aucune déclaration de priorité forcée.
+   Spécificité volontairement basse : aucun ID, peu de classes combinées
+   (le calcul est détaillé en commentaire sur les règles avancées).
+   ========================================================== */
+
+
+/* 1. Variables : couleurs, espacements et tailles en un seul endroit.
+   Bootstrap déclare aussi ses variables sur :root (même spécificité) :
+   les nôtres gagnent parce qu’elles sont chargées après. */
 :root {
   --encre: #14213d;
   --cobalt: #2f4bff;
@@ -111,6 +125,22 @@ p { max-width: 38rem; }
 }
 
 
+/* 6 bis. Accordéon FAQ : on ajuste les variables --bs-accordion-* déjà lues par Bootstrap */
+.accordion {
+  --bs-accordion-bg: var(--blanc);
+  --bs-accordion-border-width: 0;
+  --bs-accordion-border-radius: 1rem;
+  --bs-accordion-btn-padding-y: 1.125rem;
+  --bs-accordion-active-color: var(--cobalt);
+  --bs-accordion-active-bg: var(--blanc);
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.1875rem var(--soleil);
+
+  max-width: 48rem;
+}
+
+.accordion-button { font-weight: 600; }
+
+
 /* 7. Pied de page */
 footer {
   padding-block: var(--espace-section);
@@ -118,6 +148,65 @@ footer {
   color: #d7dcea;
 }
 footer a { color: var(--blanc); }
+
+
+/* 8. Navigation : combinateur d’enfant direct (>)
+   .navbar-nav > .nav-item > .nav-link ne cible que les liens placés
+   DIRECTEMENT dans un .nav-item, lui-même enfant direct de .navbar-nav.
+   Un lien d’un futur sous-menu (dropdown) ne serait pas touché.
+
+   Calcul de spécificité de la règle principale (ID, Classe, Élément) :
+     .navbar-nav > .nav-item > .nav-link
+       ID       = 0
+       Classe   = 3   (.navbar-nav, .nav-item, .nav-link)
+       Élément  = 0
+       => (0, 3, 0). Les combinateurs (>, +, espace) ajoutent 0 point.
+   Bootstrap utilise ".navbar-expand-lg .navbar-nav .nav-link", aussi à
+   (0, 3, 0) : à égalité, la règle écrite en dernier gagne. D’où le
+   chargement de styles.css après Bootstrap. */
+.navbar-nav > .nav-item > .nav-link {
+  padding-block: 0.5rem;
+  border-bottom: 0.125rem solid transparent;
+  color: var(--encre);
+  font-weight: 500;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Spécificité : (0, 4, 0) = 3 classes + la pseudo-classe :hover / :focus-visible.
+   Elle doit dépasser (0, 3, 0), sinon la couleur de base écraserait le survol. */
+.navbar-nav > .nav-item > .nav-link:hover,
+.navbar-nav > .nav-item > .nav-link:focus-visible {
+  color: var(--cobalt);
+  border-bottom-color: var(--cobalt);
+}
+
+
+/* 9. Frère adjacent (+) : un <p> placé juste après un <h2>
+   Spécificité : h2 + p => (0, 0, 2) : 0 ID, 0 classe, 2 éléments.
+   Elle dépasse "p" de Bootstrap (0, 0, 1) qui remet la marge haute à 0. */
+h2 + p {
+  margin-top: 0.75rem;
+}
+
+
+/* 10. FAQ : composant accordion de Bootstrap
+   On modifie ses variables --bs-accordion-* : un seul sélecteur de classe. */
+.accordion {
+  --bs-accordion-bg: var(--blanc);
+  --bs-accordion-active-bg: #e8ecff;
+  --bs-accordion-active-color: var(--encre);
+  --bs-accordion-border-width: 0;
+  --bs-accordion-border-radius: 1rem;
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.1875rem var(--soleil);
+
+  max-width: 48rem;
+}
+
+.accordion-item {
+  margin-bottom: 0.75rem;
+  border-radius: var(--bs-accordion-border-radius);
+  overflow: hidden;
+}
 
 
 /* ==========================================================
@@ -136,6 +225,25 @@ footer a { color: var(--blanc); }
   .hero-title { font-size: 3.25rem; }
   .hero-text  { margin-top: 2rem; font-size: 1.25rem; }
   .bandeau    { height: 0.75rem; }
+}
+
+
+/* ==========================================================
+   Grand écran de navigation : à partir de 992px (62rem)
+   Point de rupture où la navbar Bootstrap se déplie (navbar-expand-lg).
+   ========================================================== */
+/* :not(:last-child) : tous les éléments de menu SAUF le dernier (le bouton
+   d’action), pour éviter une marge inutile à droite.
+   Spécificité de .navbar-nav > .nav-item:not(:last-child) :
+     ID       = 0
+     Classe   = 3   (.navbar-nav, .nav-item, et :last-child dans :not(),
+                     car :not() prend la spécificité de son argument)
+     Élément  = 0
+     => (0, 3, 0) */
+@media (min-width: 992px) {
+  .navbar-nav > .nav-item:not(:last-child) {
+    margin-inline-end: 1rem;
+  }
 }
 
 

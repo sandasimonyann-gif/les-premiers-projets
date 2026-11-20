@@ -28,14 +28,22 @@
     <nav class="navbar navbar-expand-lg py-3" aria-label="Navigation principale">
       <div class="container">
         <a class="navbar-brand fs-3 fw-bold" href="#accueil">Studio Marée</a>
+        <!-- Bouton burger : visible seulement sous 992px (navbar-expand-lg).
+             data-bs-toggle="collapse" → ce bouton déplie/replie un élément
+             data-bs-target="#menu"    → cet élément est celui dont l’id est « menu »
+             aria-controls="menu"      → indique aux lecteurs d’écran quel contenu est piloté
+             aria-expanded="false"     → état courant (Bootstrap le passe à true à l’ouverture)
+             aria-label                → nom accessible du bouton, qui n’a pas de texte visible -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Ouvrir le menu">
           <span class="navbar-toggler-icon"></span>
         </button>
+        <!-- Contenu replié : son id doit correspondre à data-bs-target du bouton -->
         <div class="collapse navbar-collapse" id="menu">
-          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
             <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
             <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-            <li class="nav-item ms-lg-2"><a class="btn btn-cobalt" href="#contact">Démarrer un projet</a></li>
+            <li class="nav-item"><a class="btn btn-cobalt" href="#contact">Démarrer un projet</a></li>
           </ul>
         </div>
       </div>
@@ -63,7 +71,7 @@
           <!-- Colonne image : pleine largeur sur mobile, 5/12 dès 992px (7 + 5 = 12) -->
           <div class="col-12 col-lg-5">
             <!-- .img-fluid : max-width 100% + hauteur auto, l’image rétrécit avec sa colonne ; .mx-auto la centre -->
-            <img class="img-fluid d-block mx-auto" src="C:\Users\HP\OneDrive\Bureau\Apprentissage Frond-end\projet-01-vitrine/hero.svg" width="400" height="400"
+            <img class="img-fluid d-block mx-auto" src="C:/Users/HP/OneDrive/Bureau/Apprentissage Frond-end/projet-01-vitrine/hero.svg" width="400" height="400"
                  alt="Composition de formes colorées : un cercle bleu, un carré jaune et une demi-pastille sombre">
           </div>
 
@@ -76,7 +84,7 @@
          ===================================================== -->
     <section class="section" id="services" aria-labelledby="titre-services">
       <div class="container">
-        <h2 id="titre-services" class="fw-bold mb-2">Ce que nous faisons</h2>
+        <h2 id="titre-services" class="fw-bold">Ce que nous faisons</h2>
         <p class="mb-5">Trois savoir-faire, un seul interlocuteur du premier croquis à la mise en ligne.</p>
 
         <!-- .row : ligne de 12 colonnes ; .grille-services règle l’espace entre cartes dans styles.css -->
@@ -120,6 +128,62 @@
       </div>
     </section>
 
+    <!-- =====================================================
+         SECTION 3 : FAQ (composant accordion de Bootstrap)
+         ===================================================== -->
+    <section class="section" id="faq" aria-labelledby="titre-faq">
+      <div class="container">
+        <h2 id="titre-faq" class="fw-bold mb-4">Questions fréquentes</h2>
+
+        <!-- .accordion : conteneur ; son id est référencé par data-bs-parent pour n’ouvrir qu’un panneau à la fois -->
+        <div class="accordion" id="accordeonFaq">
+
+          <!-- .accordion-item : une question + sa réponse -->
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <!-- Ce bouton ouvre le panneau #reponse-1 -->
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#reponse-1" aria-expanded="true" aria-controls="reponse-1">
+                Combien de temps faut-il pour créer un site ?
+              </button>
+            </h3>
+            <!-- .show = ouvert au chargement ; data-bs-parent = groupe d’accordéon -->
+            <div id="reponse-1" class="accordion-collapse collapse show" data-bs-parent="#accordeonFaq">
+              <div class="accordion-body">
+                Comptez entre trois et six semaines pour un site vitrine, de la première maquette à la mise en ligne. Le délai dépend surtout de la rapidité avec laquelle vous nous transmettez vos textes et vos images.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#reponse-2" aria-expanded="false" aria-controls="reponse-2">
+                Pouvez-vous reprendre un logo ou une charte existants ?
+              </button>
+            </h3>
+            <div id="reponse-2" class="accordion-collapse collapse" data-bs-parent="#accordeonFaq">
+              <div class="accordion-body">
+                Oui. Nous partons de vos éléments actuels, les améliorons si besoin et les adaptons au web. Vous gardez ce qui fonctionne et nous retravaillons le reste avec vous.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#reponse-3" aria-expanded="false" aria-controls="reponse-3">
+                Comment se déroule le paiement ?
+              </button>
+            </h3>
+            <div id="reponse-3" class="accordion-collapse collapse" data-bs-parent="#accordeonFaq">
+              <div class="accordion-body">
+                Nous demandons un acompte au lancement du projet, puis le solde à la livraison. Le devis détaille chaque étape avant toute signature.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- Pied de page : coordonnées et mentions -->
@@ -127,7 +191,7 @@
     <div class="container">
       <div class="row g-4">
         <div class="col-md-6">
-          <h2 class="h4 text-white mb-2">Un projet en tête ?</h2>
+          <h2 class="h4 text-white">Un projet en tête ?</h2>
           <p class="mb-0">Écrivez-nous, nous répondons sous 48 heures.</p>
         </div>
         <div class="col-md-6 text-md-end">
@@ -142,7 +206,7 @@
     </div>
   </footer>
 
-  <!-- Bootstrap 5 (JS) : nécessaire au menu burger -->
+  <!-- Bootstrap 5 (JS) : nécessaire au menu burger et à l’accordéon FAQ -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
