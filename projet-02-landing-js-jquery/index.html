@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez Nébula, l'espace de travail qui aide votre équipe à avancer avec clarté.">
+    <meta name="theme-color" content="#f7f8fc">
+    <title>Nébula — Le travail retrouve son fil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="site-header">
+      <nav class="navigation container" aria-label="Navigation principale">
+        <a class="brand" href="#accueil" aria-label="Nébula, accueil">
+          <span class="brand-mark" aria-hidden="true">n</span>
+          <span>nébula</span>
+        </a>
+        <div class="nav-links">
+          <a href="#fonctionnalites">Fonctionnalités</a>
+          <a href="#offres">Offres</a>
+          <a href="#essai">À propos</a>
+        </div>
+        <a class="button button-small button-dark nav-cta" href="#essai">Essayer gratuitement <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main id="contenu">
+      <section class="hero container" id="accueil" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Votre équipe, en harmonie</span>
+          <h1 id="hero-title">Le travail retrouve <span>son fil.</span></h1>
+          <p class="hero-description">Nébula rassemble vos projets, vos idées et votre équipe dans un espace qui laisse enfin place à l’essentiel.</p>
+          <div class="hero-actions">
+            <a class="button button-dark" href="#essai">Trouver mon rythme <span aria-hidden="true">→</span></a>
+            <button class="button button-quiet" id="preview-toggle" type="button" aria-expanded="false" aria-controls="preview-message">
+              <span class="play-icon" aria-hidden="true">▶</span> Découvrir Nébula
+            </button>
+          </div>
+          <p class="preview-message" id="preview-message" hidden role="status">Une meilleure façon d’avancer ensemble commence ici. Explorez les fonctionnalités de Nébula juste en dessous.</p>
+          <div class="social-proof">
+            <div class="avatar-stack" aria-hidden="true"><span>L</span><span>M</span><span>A</span><span>+</span></div>
+            <p><strong>2 400+</strong> équipes ont trouvé leur flow</p>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="dashboard-card">
+            <div class="dashboard-top"><span class="dashboard-logo" aria-hidden="true">n</span><span>Mon espace</span><span aria-hidden="true" class="more-button">···</span></div>
+            <div class="dashboard-heading"><div><span class="dashboard-kicker">MARDI 24 JUIN</span><h2>Bonjour, Camille <span aria-hidden="true">✦</span></h2></div><div class="dashboard-avatar" aria-hidden="true">C</div></div>
+            <div class="focus-card"><span class="focus-icon" aria-hidden="true">✳</span><div><span class="task-label">VOTRE PRIORITÉ DU JOUR</span><p>Lancer la nouvelle collection</p></div><span class="task-check" aria-hidden="true">✓</span></div>
+            <div class="board-title"><span>Cette semaine</span><span class="board-count">3 projets</span></div>
+            <div class="project-row"><span class="project-dot dot-purple"></span><span>Identité de marque</span><span class="project-progress"><i style="width: 72%"></i></span><span>72%</span></div>
+            <div class="project-row"><span class="project-dot dot-orange"></span><span>Lancement produit</span><span class="project-progress"><i style="width: 48%"></i></span><span>48%</span></div>
+            <div class="project-row"><span class="project-dot dot-green"></span><span>Site web</span><span class="project-progress"><i style="width: 90%"></i></span><span>90%</span></div>
+            <div class="dashboard-bottom"><span class="online-dot"></span> Votre équipe avance à bon rythme <span aria-hidden="true">↗</span></div>
+          </div>
+          <div class="floating-note note-top"><span aria-hidden="true">✦</span><span>Tout est à sa place</span></div>
+          <div class="floating-note note-bottom"><span class="note-check" aria-hidden="true">✓</span><span><strong>Focus activé</strong><small>Il est temps de créer.</small></span></div>
+          <div class="visual-glow" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <section class="features section-pad" id="fonctionnalites" aria-labelledby="features-title">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Moins de bruit, plus d’élan</span>
+            <h2 id="features-title">Tout ce qu’il faut.<br><span>Rien de trop.</span></h2>
+            <p>Un espace pensé pour les vraies journées de travail : celles où les idées circulent et les choses avancent.</p>
+          </div>
+          <div class="feature-grid">
+            <article class="feature-card feature-lavender">
+              <div class="feature-art art-project" aria-hidden="true"><span class="art-window"><i></i><i></i><i></i><b></b><b></b></span><span class="art-sparkle">✦</span></div>
+              <span class="feature-number">01 — ORGANISEZ</span>
+              <h3>Une vue d’ensemble, enfin.</h3>
+              <p>Rassemblez vos projets et repérez d’un coup d’œil ce qui compte aujourd’hui.</p>
+            </article>
+            <article class="feature-card feature-peach">
+              <div class="feature-art art-team" aria-hidden="true"><span class="team-bubble bubble-one">L</span><span class="team-bubble bubble-two">M</span><span class="team-bubble bubble-three">A</span><span class="team-connect">✳</span></div>
+              <span class="feature-number">02 — COLLABOREZ</span>
+              <h3>Ensemble, sans friction.</h3>
+              <p>Les bonnes conversations restent près des idées et des décisions qui les inspirent.</p>
+            </article>
+            <article class="feature-card feature-mint">
+              <div class="feature-art art-focus" aria-hidden="true"><span class="focus-ring ring-one"></span><span class="focus-ring ring-two"></span><span class="focus-core">✳</span><span class="focus-caption">Mode focus</span></div>
+              <span class="feature-number">03 — CONCENTREZ-VOUS</span>
+              <h3>Retrouvez votre flow.</h3>
+              <p>Un rythme plus serein, des priorités claires et du temps pour le travail profond.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="offers section-pad" id="offres" aria-labelledby="offers-title">
+        <div class="container offer-layout">
+          <div class="offer-intro">
+            <span class="eyebrow">À votre mesure</span>
+            <h2 id="offers-title">Le bon espace<br>pour <span>bien avancer.</span></h2>
+            <p>Choisissez l’offre qui accompagne votre équipe. Vous pourrez changer d’avis à tout moment.</p>
+            <div class="offer-assurance"><span aria-hidden="true">✦</span> 14 jours d’essai, sans carte bancaire</div>
+          </div>
+          <div class="offer-picker">
+            <div class="offer-options" role="group" aria-label="Choisir une offre">
+              <button class="offer-option is-selected" type="button" data-variant-id="solo" aria-pressed="true">
+                <span class="option-radio" aria-hidden="true"></span><span class="option-copy"><strong>Solo</strong><small>Pour vos projets personnels</small></span><span class="option-price">0 €<small>/ mois</small></span>
+              </button>
+              <button class="offer-option" type="button" data-variant-id="studio" aria-pressed="false">
+                <span class="option-radio" aria-hidden="true"></span><span class="option-copy"><strong>Studio</strong><small>Pour les petites équipes</small></span><span class="option-price">12 €<small>/ personne / mois</small></span><span class="popular-badge">Populaire</span>
+              </button>
+              <button class="offer-option" type="button" data-variant-id="collectif" aria-pressed="false">
+                <span class="option-radio" aria-hidden="true"></span><span class="option-copy"><strong>Collectif</strong><small>Pour aller plus loin ensemble</small></span><span class="option-price">24 €<small>/ personne / mois</small></span>
+              </button>
+            </div>
+            <div class="offer-summary" aria-live="polite">
+              <div><span class="summary-label">VOTRE SÉLECTION</span><p id="offer-summary">L’offre Solo — gratuite pour toujours.</p></div>
+              <span class="summary-price" id="summary-price">0 €</span>
+            </div>
+            <p class="selection-feedback" id="selection-feedback" role="status" aria-live="polite"></p>
+            <button class="details-toggle" id="details-toggle" type="button" aria-expanded="false" aria-controls="offer-details">Comparer les offres en détail <span aria-hidden="true">↓</span></button>
+            <div class="offer-details" id="offer-details" hidden><p><strong>Solo :</strong> projets personnels et tâches illimités.</p><p><strong>Studio :</strong> espaces d’équipe, calendrier partagé et automatisations.</p><p><strong>Collectif :</strong> tout Studio, avec permissions avancées et accompagnement dédié.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="trial section-pad" id="essai" aria-labelledby="trial-title">
+        <div class="container trial-card">
+          <div class="trial-copy">
+            <span class="eyebrow">Votre prochain chapitre commence ici</span>
+            <h2 id="trial-title">Et si le travail<br>vous <span>ressemblait ?</span></h2>
+            <p>Créez votre espace et découvrez une façon plus claire d’avancer. C’est gratuit pour commencer.</p>
+            <div class="trial-perks"><span><i aria-hidden="true">✓</i> Sans carte bancaire</span><span><i aria-hidden="true">✓</i> Prêt en 2 minutes</span></div>
+          </div>
+          <form class="trial-form" id="trial-form" novalidate>
+            <label for="lead-email">Votre adresse e-mail</label>
+            <input id="lead-email" name="email" type="email" autocomplete="email" maxlength="254" placeholder="vous@exemple.fr" required aria-describedby="email-help form-feedback">
+            <span class="email-count" id="email-count" aria-live="polite">0 / 254</span>
+            <p class="field-help" id="email-help">On vous écrit uniquement au sujet de votre espace.</p>
+            <label for="lead-variant">L’offre qui vous intéresse</label>
+            <select id="lead-variant" name="variant">
+              <option value="solo">Solo — gratuit</option>
+              <option value="studio">Studio — 12 € / personne / mois</option>
+              <option value="collectif">Collectif — 24 € / personne / mois</option>
+            </select>
+            <button class="button button-dark form-submit" type="submit">Créer mon espace <span aria-hidden="true">→</span></button>
+            <button class="help-toggle" id="help-toggle" type="button" aria-expanded="false" aria-controls="help-message">Une question ? Besoin d’aide ?</button>
+            <p class="help-message" id="help-message" hidden>Notre équipe est là pour vous aider : écrivez-nous à bonjour@nebula.example.</p>
+            <p class="form-feedback" id="form-feedback" role="status" aria-live="polite"></p>
+          </form>
+          <div class="trial-decoration" aria-hidden="true"><span>✦</span><i></i></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a class="brand footer-brand" href="#accueil"><span class="brand-mark" aria-hidden="true">n</span><span>nébula</span></a>
+        <p>Moins de bruit. Plus de beau travail.</p>
+        <span class="copyright">© 2026 Nébula. Fait pour avancer.</span>
+      </div>
+    </footer>
+  </body>
+</html>
